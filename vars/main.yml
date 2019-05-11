@@ -1,0 +1,5 @@
+---
+_nginx_role: ~
+_nginx_service: nginx
+_nginx_packages:
+  - nginx={{ nginx_version }}
