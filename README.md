@@ -4,7 +4,7 @@ Some description for Nginx role would be nice. Any volunteers?
 
 ### Parameters
 
-**nginx_version** (type `string`, default `2.4.*`)
+**nginx_version** (type `string`, default `1.14.*`)
 
 Example:
 ```yaml
