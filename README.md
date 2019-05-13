@@ -8,7 +8,7 @@ Some description for Nginx role would be nice. Any volunteers?
 
 Example:
 ```yaml
-nginx_version: 2.4.*
+nginx_version: 1.14.*
 ```
 
 **nginx_modules** (type `array`, default `[]`)
