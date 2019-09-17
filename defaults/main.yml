@@ -2,4 +2,5 @@
 nginx_version: 1.14.*
 nginx_modules: []
 nginx_configs: {}
+nginx_snippets: {}
 nginx_sites: {}

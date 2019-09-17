@@ -27,6 +27,14 @@ nginx_configs:
   fqdn: /vagrant/templates/fqdn.conf.j2
 ```
 
+**nginx_snippets** (type `object`, defalt `{}`)
+
+Example:
+```yaml
+nginx_snippets:
+  fastcgi: /vagrant/templates/fastcgi.conf.j2
+```
+
 **nginx_sites** (type `object`, default `{}`)
 
 Example:

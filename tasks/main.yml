@@ -31,6 +31,13 @@
     dest: /etc/nginx/conf.d/{{ item.key }}.conf
   with_dict: "{{ nginx_configs }}"
   notify: restart-webserver
+
+- name: Add snippets
+  template:
+    src: "{{ item.value }}"
+    dest: /etc/nginx/snippets/{{ item.key }}.conf
+  with_dict: "{{ nginx_snippets }}"
+  notify: restart-webserver
     
 - name: Disable default site
   file:
