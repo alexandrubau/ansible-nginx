@@ -27,16 +27,16 @@
 
 - name: Add configs
   template:
-    src: "{{ item.value }}"
-    dest: /etc/nginx/conf.d/{{ item.key }}.conf
-  with_dict: "{{ nginx_configs }}"
+    src: "{{ item.path }}"
+    dest: /etc/nginx/conf.d/{{ item.name }}.conf
+  with_items: "{{ nginx_configs }}"
   notify: restart-webserver
 
 - name: Add snippets
   template:
-    src: "{{ item.value }}"
-    dest: /etc/nginx/snippets/{{ item.key }}.conf
-  with_dict: "{{ nginx_snippets }}"
+    src: "{{ item.path }}"
+    dest: /etc/nginx/snippets/{{ item.name }}.conf
+  with_items: "{{ nginx_snippets }}"
   notify: restart-webserver
     
 - name: Disable default site
@@ -47,15 +47,15 @@
 
 - name: Add sites
   template:
-    src: "{{ item.value }}"
-    dest: /etc/nginx/sites-available/{{ item.key }}.conf
-  with_dict: "{{ nginx_sites }}"
+    src: "{{ item.path }}"
+    dest: /etc/nginx/sites-available/{{ item.name }}.conf
+  with_items: "{{ nginx_sites }}"
   notify: restart-webserver
 
 - name: Enable sites
   file:
-    src: /etc/nginx/sites-available/{{ item.key }}.conf
-    dest: /etc/nginx/sites-enabled/{{ item.key }}.conf
+    src: /etc/nginx/sites-available/{{ item.name }}.conf
+    dest: /etc/nginx/sites-enabled/{{ item.name }}.conf
     state: link
-  with_dict: "{{ nginx_sites }}"
+  with_items: "{{ nginx_sites }}"
   notify: restart-webserver

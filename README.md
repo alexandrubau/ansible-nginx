@@ -19,26 +19,29 @@ nginx_modules:
   - ngx_http_geoip_module
 ```
 
-**nginx_configs** (type `object`, defalt `{}`)
+**nginx_configs** (type `object`, defalt `[]`)
 
 Example:
 ```yaml
 nginx_configs:
-  fqdn: /vagrant/templates/fqdn.conf.j2
+  - name: fqdn
+    path: /vagrant/templates/fqdn.conf.j2
 ```
 
-**nginx_snippets** (type `object`, defalt `{}`)
+**nginx_snippets** (type `object`, defalt `[]`)
 
 Example:
 ```yaml
 nginx_snippets:
-  fastcgi: /vagrant/templates/fastcgi.conf.j2
+  - name: fastcgi
+    path: /vagrant/templates/fastcgi.conf.j2
 ```
 
-**nginx_sites** (type `object`, default `{}`)
+**nginx_sites** (type `object`, default `[]`)
 
 Example:
 ```yaml
 nginx_sites:
-  athena: /vagrant/templates/athena.conf.j2
+  - name: athena
+    path: /vagrant/templates/athena.conf.j2
 ```
