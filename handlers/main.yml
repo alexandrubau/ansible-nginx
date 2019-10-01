@@ -1,0 +1,6 @@
+---
+- name: Restart nginx
+  service:
+    name: "{{ _nginx_service }}"
+    state: restarted
+  listen: restart-webserver
