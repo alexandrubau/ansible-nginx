@@ -1,5 +1,6 @@
 ---
 _nginx_role: ~
+_webserver_role: ~
 _nginx_service: nginx
 _nginx_packages:
   - nginx={{ nginx_version }}
