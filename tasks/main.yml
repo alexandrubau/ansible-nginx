@@ -3,12 +3,6 @@
   apt:
     name: "{{ _nginx_packages }}"
 
-- name: Start service
-  service:
-    name: "{{ _nginx_service }}"
-    state: started
-    enabled: yes
-
 - name: Add modules
   lineinfile:
       path: /etc/nginx/modules-available/{{ item }}.conf
@@ -59,3 +53,9 @@
     state: link
   with_items: "{{ nginx_sites }}"
   notify: restart-webserver
+
+- name: Start service
+  service:
+    name: "{{ _nginx_service }}"
+    state: started
+    enabled: yes
