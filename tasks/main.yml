@@ -21,14 +21,14 @@
 
 - name: Add configs
   template:
-    src: "{{ item.path }}"
+    src: "{{ item.src }}"
     dest: /etc/nginx/conf.d/{{ item.name }}.conf
   with_items: "{{ nginx_configs }}"
   notify: restart-webserver
 
 - name: Add snippets
   template:
-    src: "{{ item.path }}"
+    src: "{{ item.src }}"
     dest: /etc/nginx/snippets/{{ item.name }}.conf
   with_items: "{{ nginx_snippets }}"
   notify: restart-webserver
@@ -41,7 +41,7 @@
 
 - name: Add sites
   template:
-    src: "{{ item.path }}"
+    src: "{{ item.src }}"
     dest: /etc/nginx/sites-available/{{ item.name }}.conf
   with_items: "{{ nginx_sites }}"
   notify: restart-webserver
